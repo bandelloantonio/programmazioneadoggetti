@@ -14,15 +14,13 @@ import java.util.List;
 import org.primefaces.json.JSONArray;
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
-
 import javax.tools.JavaFileObject;
 
-public class JsonArray {
-	
-	public static void main(String[] args) {
 
+public class JsonArray{ 
+public static void main(String[] args) {
+ 
 		String url = "https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat=37.781157&long=-122.398720&granularity=neighborhood"; 
-		String fileName = "";
 		if(args.length == 1) {
 			url = args[0]; 
 		}
@@ -59,5 +57,5 @@ public class JsonArray {
 	}
 }
 
-		}
+		
 
