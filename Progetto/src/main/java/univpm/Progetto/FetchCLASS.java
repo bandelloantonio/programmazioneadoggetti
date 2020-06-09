@@ -4,27 +4,33 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.net.URLConnection;
-import java.text.ParseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import org.primefaces.json.JSONObject;
 
 public class FetchCLASS {
 
-	public String getJsonFromUrl() {
+	public String[] getJsonFromUrl() {
 		//vengono definite due variabili di tipo String
 		String line="";
-		String data="";
-		
+		String[] data=new String[100];
+	String[] longitudine= {"-122.398720","",""};
+	String[] latitudine= {"37.781157","",""};
+	for(int i=0;i<1;i++) {
+		data[i]="";
 		try {
-			  URLConnection openConnection = new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat=37.781157&long=-122.398720&granularity=neighborhood&max_results")
-					  BufferedInputStream in= new BufferInputStream(openConnection.getIputStream);
+			  URL link =new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat="+latitudine[i]+"&long="+longitudine[i]+"&granularity=neighborhood&max_results");
+			  URLConnection openConnection =link.openConnection();
+			  BufferedInputStream in= new BufferedInputStream (openConnection.getInputStream());
 			  try {
 				  InputStreamReader inR = new InputStreamReader(in);
-				  BufferedReader buf=new InputStreamReader(inR);
-				  
+				  BufferedReader buf = new BufferedReader(inR);
+
 				while ((line=buf.readLine()) != null)  {
-					data +=(line); //serve per avere una lettura riga per riga 
+					data[i]+=line+"\n"; //serve per avere una lettura riga per riga
+				
 				}
 			  } 
 			  finally {
@@ -33,6 +39,7 @@ public class FetchCLASS {
 		} catch (IOException e) {
 			System.out.println("I/O Error" + e);
 		}
+	}
 		return data;
 	}
 
@@ -40,19 +47,13 @@ public class FetchCLASS {
 
 //metodo che si utilizza per effettuare il PARSING dal JSON
 
-public JSONObject parsing ( ) {
-	JSONObject obj= null;
+public JSONArray parsing ( ) {
 	// inizializzo e definisco un oggetto JSONObject
-	String data = getJsonFromUrl();
-	
-	try {
-		obj=(JSONObject)JsonValue.parseWithException(data);
-	
-	}catch (ParseException e) {
-		e.printStackTrace();
-	} 
+	String[] data = getJsonFromUrl();
+	JSONObject jobject = new JSONObject(data[0]);
+	JSONArray jarray = jobject.getJSONArray("result");
 	//parse Json Object
-	return obj;
+	return jarray;
    }
 
 }
