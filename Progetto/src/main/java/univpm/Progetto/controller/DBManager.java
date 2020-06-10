@@ -8,15 +8,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBMenager {
+public class DBManager {
 	
-	public class DBManager {
-		private DBManager dbManager;
+	public class  DBManager {
+		private DBManager dbMenager;
 		private Properties queryProperties;
 		private Properties dbProperties;
 		private String postgresUrl;
 		
-		private DBManager() throws DigestException {
+		private DBManeger() throws DigestException {
 			try (InputStream dbPropFile = getClass().getResourceAsStream("db.properties");
 				 InputStream queryPropFile = getClass().getResourceAsStream("query.properties");) {
 				queryProperties = new Properties();
@@ -30,7 +30,7 @@ public class DBMenager {
 		}
 		public  DBManager getInstance() throws DigestException {
 			if (dbManager == null)
-				dbManager = new DBManager();
+				dbMenager = new DBManager();
 			return dbManager;
 		}
 	    public Connection getConnection() throws SQLException{
