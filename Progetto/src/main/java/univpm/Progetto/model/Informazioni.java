@@ -7,11 +7,24 @@ public class Informazioni {
 	private  String full_name;
 	private  String country_code;
 	private  String country;
+	private  Coordinate coordinate;
 	/**
 	 * @return the type_place
 	 */
 	public String getType_place() {
 		return type_place;
+	}
+	/**
+	 * @return the coordinate
+	 */
+	public Coordinate getCoordinate() {
+		return coordinate;
+	}
+	/**
+	 * @param coordinate the coordinate to set
+	 */
+	public void setCoordinate(Coordinate coordinate) {
+		this.coordinate = coordinate;
 	}
 	/**
 	 * @param type_place the type_place to set

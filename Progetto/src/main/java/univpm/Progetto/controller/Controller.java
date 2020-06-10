@@ -4,8 +4,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import univpm.Progetto.FetchCLASS;
 import univpm.Progetto.Utente;
+import univpm.Progetto.model.Informazioni;
 
-import org.json.JSONArray;
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Controller {
 	Utente UtenteRequest= new Utente();
 	@GetMapping("/metadata")
-	public JSONArray getMetadata() {
+	public ArrayList<Informazioni> getMetadata() {
 		FetchCLASS obj = new FetchCLASS();
 		return obj.parsing();
 	}
