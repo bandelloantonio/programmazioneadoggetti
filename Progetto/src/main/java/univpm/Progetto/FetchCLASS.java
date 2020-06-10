@@ -18,7 +18,7 @@ public class FetchCLASS {
 		String[] data=new String[100];
 	String[] longitudine= {"-122.398720","",""};
 	String[] latitudine= {"37.781157","",""};
-	for(int i=0;i<1;i++) {
+	for(int i=0;i<3;i++) {
 		data[i]="";
 		try {
 			  URL link =new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat="+latitudine[i]+"&long="+longitudine[i]+"&granularity=neighborhood&max_results");
