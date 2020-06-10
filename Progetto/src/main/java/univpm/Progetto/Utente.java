@@ -5,9 +5,9 @@ import java.util.Vector;
 import org.json.JSONArray;
 import univpm.Progetto.model.Informazioni;
 
-public class User {
+public class Utente {
 	
-	public Vector <User> fillup() {
+	public Vector <Utente> fillup() {
 		FetchCLASS FetchObject = new FetchCLASS();
 		JSONArray  jArray = FetchObject.parsing();
 		Vector<Informazioni>userVector = new Vector<Informazioni>();
