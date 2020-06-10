@@ -55,5 +55,4 @@ public JSONArray parsing ( ) {
 	//parse Json Object
 	return jarray;
    }
-
 }

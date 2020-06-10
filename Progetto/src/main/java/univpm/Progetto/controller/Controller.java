@@ -2,10 +2,10 @@ package univpm.Progetto.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import univpm.Progetto.FetchCLASS;
 import univpm.Progetto.Utente;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.json.JSONArray;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Controller {
 	Utente UtenteRequest= new Utente();
 	@GetMapping("/metadata")
-	public ResponseEntity<Object> getMetadata() {
-		return new ResponseEntity<>(UtenteRequest.fillup(),HttpStatus.OK);
+	public JSONArray getMetadata() {
+		FetchCLASS obj = new FetchCLASS();
+		return obj.parsing();
 	}
 }
-
+ 
