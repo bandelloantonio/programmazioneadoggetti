@@ -19,8 +19,8 @@ public class Definizione {
 	public String[] getJsonFromUrl() {
 		//vengono definite due variabili di tipo String
 		String line="";
-	String[] longitudine= {"-122.398720","13.516850",""};
-	String[] latitudine= {"37.781157","43.616967",""};
+	String[] longitudine= {"-122.398720","13.516850","40.4376161","55.5769116","40.9962036","-22.9131475"};
+	String[] latitudine= {"37.781157","43.616967","3.9597326","36.2644586","17.1815004",",-44.0065071"};
 	String[] data=new String[longitudine.length];
 	for(int i=0;i<longitudine.length;i++) {
 		data[i]="";
