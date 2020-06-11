@@ -14,6 +14,10 @@ import org.json.JSONObject;
 import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;
 
+/**Ricerca l'URL per il download del dataset nel JSON e inizzializza
+ * l'intero array di record
+ * @param url che ci restituisce un JSON contenente il link al dataset
+ */
 
 public class Definizione {
 	public String[] getJsonFromUrl() {
