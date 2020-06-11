@@ -1,6 +1,6 @@
 package univpm.Progetto.model;
 
-public class Informazioni {
+public class Informazioni extends Coordinate{
 
 	private  String type_place;
 	private  String name;
@@ -19,12 +19,6 @@ public class Informazioni {
 	 */
 	public Coordinate getCoordinate() {
 		return coordinate;
-	}
-	/**
-	 * @param coordinate the coordinate to set
-	 */
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
 	}
 	/**
 	 * @param type_place the type_place to set
