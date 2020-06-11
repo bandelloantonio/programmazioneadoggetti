@@ -15,7 +15,7 @@ import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;
 
 
-public class FetchCLASS {
+public class Definizione {
 	public String[] getJsonFromUrl() {
 		//vengono definite due variabili di tipo String
 		String line="";

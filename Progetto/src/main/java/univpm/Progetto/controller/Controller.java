@@ -2,7 +2,7 @@ package univpm.Progetto.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import univpm.Progetto.FetchCLASS;
+import univpm.Progetto.Definizione;
 import univpm.Progetto.Utente;
 import univpm.Progetto.model.Informazioni;
 
@@ -16,7 +16,7 @@ public class Controller {
 	Utente UtenteRequest= new Utente();
 	@GetMapping("/metadata")
 	public ArrayList<Informazioni> getMetadata() {
-		FetchCLASS obj = new FetchCLASS();
+		Definizione obj = new Definizione();
 		return obj.parsing();
 	}
 }
