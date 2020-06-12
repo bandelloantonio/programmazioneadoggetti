@@ -62,6 +62,7 @@ public class Definizione {
 		String[] data = getJsonFromUrl();
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
 		for (int i = 0; i < data.length; i++) {
+			JSONObject obj = (JSONObject) JSONValue.parseWithException(data);
 			JSONObject jobject = new JSONObject(data[i]);
 			JSONObject jarra = jobject.getJSONObject("result");
 			JSONArray jarray = jarra.getJSONArray("places");

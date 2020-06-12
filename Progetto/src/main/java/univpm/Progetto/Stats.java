@@ -27,7 +27,7 @@ public class Stats {
 	}
 	private Coordinate[] riconoscitore(JSONObject coordinates) {
 		Coordinate[] riconosciuto = new Coordinate[2];
-		JSONArray appoggio1 = coordinates.getJSONArray("angol_sinistro_alto");
+		JSONArray appoggio1 = coordinates.getJSONArray("angolo_sinistro_alto");
 		riconosciuto[0].setCoordinate(appoggio1.toString());
 		JSONArray appoggio2 = coordinates.getJSONArray("angolo_destro_basso");
 		riconosciuto[1].setCoordinate(appoggio2.toString());
