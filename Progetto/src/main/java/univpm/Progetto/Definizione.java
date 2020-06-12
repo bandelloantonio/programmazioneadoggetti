@@ -60,9 +60,10 @@ public class Definizione {
 	public ArrayList<Informazioni> parsing() throws IOException {
 		// inizializzo e definisco un oggetto JSONObject
 		String[] data = getJsonFromUrl();
+		//JSONObject obj= new JSONObject(data[0]);
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
 		for (int i = 0; i < data.length; i++) {
-			JSONObject obj = (JSONObject) JSONValue.parseWithException(data);
+			//JSONObject obj = JSONObject.
 			JSONObject jobject = new JSONObject(data[i]);
 			JSONObject jarra = jobject.getJSONObject("result");
 			JSONArray jarray = jarra.getJSONArray("places");
