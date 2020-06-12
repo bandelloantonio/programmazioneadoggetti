@@ -2,6 +2,7 @@ package univpm.Progetto;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;
 
 /**
@@ -22,13 +22,12 @@ import univpm.Progetto.model.Informazioni;
  */
 
 public class Definizione {
-	public String[] getJsonFromUrl() {
+	public String[] getJsonFromUrl() throws IOException {
 		// vengono definite due variabili di tipo String
 		String line = "";
-		String[] longitudine = { "-122.398720", "13.516850", "40.4376161", "55.5769116", "40.9962036", "-22.9131475",
-				"-8.4556974", "27.9466392", "52.5055204", "52.3543343", "43.7168719", "41.3308973" };
-		String[] latitudine = { "37.781157", "43.616967", "3.9597326", "36.2644586", "17.1815004", ",-44.0065071",
-				"114.5110582", "34.2086644", "12.8642933", "4.623774", "-79.9385275", "19.6777365" };
+		BufferedReader input = new BufferedReader(new FileReader("coordinate.txt"));
+		String[] longitudine = input.readLine().split(",");
+		String[] latitudine = input.readLine().split(",");
 		String[] data = new String[longitudine.length];
 		for (int i = 0; i < longitudine.length; i++) {
 			data[i] = "";
@@ -58,7 +57,7 @@ public class Definizione {
 
 //metodo che si utilizza per effettuare il PARSING dal JSON
 
-	public ArrayList<Informazioni> parsing() {
+	public ArrayList<Informazioni> parsing() throws IOException {
 		// inizializzo e definisco un oggetto JSONObject
 		String[] data = getJsonFromUrl();
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
