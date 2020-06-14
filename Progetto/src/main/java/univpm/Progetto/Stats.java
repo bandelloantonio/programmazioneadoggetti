@@ -1,19 +1,20 @@
-/**
- * 
- */
+
 package univpm.Progetto;
 
+/**
+ * <p>
+ * <b>Classe</b> per la gestione delle statistiche
+ * <p>
+ * @author Antonio
+ */
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;
 
 /**
- * @author Antonio
- *
+ * crea una lista in base alle coordinate che vengono fornite
  */
 public class Stats {
 	public ArrayList<Informazioni> funzione(JSONObject coordinates, ArrayList <Informazioni> data){
@@ -25,6 +26,11 @@ public class Stats {
 		}
 		return lista;
 	}
+	
+	/**
+	 * @param coordinates
+	 * @return le coordinate top left e botomright per formare un rettangolo identificativo 
+	 */
 	private Coordinate[] riconoscitore(JSONObject coordinates) {
 		Coordinate[] riconosciuto = new Coordinate[2];
 		JSONArray appoggio1 = coordinates.getJSONArray("angolo_sinistro_alto");

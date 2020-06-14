@@ -1,7 +1,11 @@
 package univpm.Progetto.model;
 
+/**
+ * creo una classe ereditarietà nella quale genero i get e i set
+ * @author Antonio
+ */
 public class Informazioni extends Coordinate{
-
+	
 	private  String type_place;
 	private  String name;
 	private  String full_name;

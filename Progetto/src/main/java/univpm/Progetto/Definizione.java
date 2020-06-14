@@ -15,15 +15,20 @@ import org.json.JSONObject;
 import univpm.Progetto.model.Informazioni;
 
 /**
- * Ricerca l'URL per il download del dataset nel JSON e inizzializza l'intero
+ * @return l'URL per il download del dataset nel JSON e inizzializza l'intero
  * array di record
- * 
  * @param url che ci restituisce un JSON contenente il link al dataset
  */
 
 public class Definizione {
+	
 	public String[] getJsonFromUrl() throws IOException {
-		// vengono definite due variabili di tipo String
+		
+		/**
+		 * definisco due variabili di tipo String
+		 * 
+		 * ed effettuo una lettura riga per riga 
+		 */
 		String line = "";
 		BufferedReader input = new BufferedReader(new FileReader("coordinate.txt"));
 		String[] longitudine = input.readLine().split(",");
@@ -42,7 +47,7 @@ public class Definizione {
 					BufferedReader buf = new BufferedReader(inR);
 
 					while ((line = buf.readLine()) != null) {
-						data[i] += line + "\n"; // serve per avere una lettura riga per riga
+						data[i] += line + "\n"; 
 
 					}
 				} finally {
@@ -55,15 +60,21 @@ public class Definizione {
 		return data;
 	}
 
-//metodo che si utilizza per effettuare il PARSING dal JSON
 
+	
+/**
+ * metodo che si utilizza per effettuare il PARSING dal JSON
+ * 
+ * @return un array contenente le informazioni richieste
+ *  
+ */
 	public ArrayList<Informazioni> parsing() throws IOException {
-		// inizializzo e definisco un oggetto JSONObject
+		/**
+		 * inizializzo e definisco un oggetto JSONObject
+		 */
 		String[] data = getJsonFromUrl();
-		//JSONObject obj= new JSONObject(data[0]);
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
 		for (int i = 0; i < data.length; i++) {
-			//JSONObject obj = JSONObject.
 			JSONObject jobject = new JSONObject(data[i]);
 			JSONObject jarra = jobject.getJSONObject("result");
 			JSONArray jarray = jarra.getJSONArray("places");
