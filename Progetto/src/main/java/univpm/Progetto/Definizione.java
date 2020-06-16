@@ -85,7 +85,10 @@ public class Definizione {
 				info.setFull_name(jarray.getJSONObject(j).getString("full_name"));
 				info.setName(jarray.getJSONObject(j).getString("name"));
 				info.setType_place(jarray.getJSONObject(j).getString("place_type"));
-				JSONArray appo = (jarray.getJSONObject(j).getJSONArray("centroid"));
+				JSONArray appo = ((jarray.getJSONObject(j)).getJSONArray("centroid"));
+				for (Object oggetto : appo) {
+				String lati = oggetto.toString();
+				}
 				info.setCoordinate(appo.toString());
 				informazionitotali.add(info);
 			}

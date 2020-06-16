@@ -16,7 +16,7 @@ import univpm.Progetto.model.Informazioni;
 /**
  * crea una lista in base alle coordinate che vengono fornite
  */
-public class Stats {
+public class Stats implements StatsInterfaccia {
 	public ArrayList<Informazioni> funzione(JSONObject coordinates, ArrayList <Informazioni> data){
 		Coordinate[] contenitore = riconoscitore(coordinates);
 		ArrayList<Informazioni> lista = new ArrayList<Informazioni>();

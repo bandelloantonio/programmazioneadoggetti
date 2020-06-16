@@ -14,7 +14,7 @@ import univpm.Progetto.model.Informazioni;
  */
 
 public class funzionidelcontroller {
-	ArrayList<Informazioni> Database;
+	private ArrayList<Informazioni> Database;
 	
 	
 	public funzionidelcontroller() {
