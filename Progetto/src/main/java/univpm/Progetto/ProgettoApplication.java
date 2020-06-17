@@ -1,4 +1,4 @@
-package univpm.Progetto.util;
+package univpm.Progetto;
 
 
 import org.springframework.boot.SpringApplication;
