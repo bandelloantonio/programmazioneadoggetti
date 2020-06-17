@@ -1,4 +1,4 @@
-package univpm.Progetto;
+package univpm.Progetto.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 
 import univpm.Progetto.model.Informazioni;
+import univpm.Progetto.util.Definizione;
+import univpm.Progetto.util.Stats;
 
 
 /**

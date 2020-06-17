@@ -1,4 +1,4 @@
-package univpm.Progetto;
+package univpm.Progetto.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -16,26 +16,27 @@ import univpm.Progetto.model.Informazioni;
 
 /**
  * @return l'URL per il download del dataset nel JSON e inizzializza l'intero
- * array di record
+ *         array di record
  * @param url che ci restituisce un JSON contenente il link al dataset
  */
 
 public class Definizione {
-	
+
 	public String[] getJsonFromUrl() throws IOException {
-		
+
 		/**
 		 * definisco due variabili di tipo String
 		 * 
-		 * ed effettuo una lettura riga per riga 
+		 * ed effettuo una lettura riga per riga
 		 */
 		String line = "";
 		BufferedReader input = new BufferedReader(new FileReader("coordinate.txt"));
 		String[] longitudine = input.readLine().split(",");
 		String[] latitudine = input.readLine().split(",");
 		String[] data = new String[longitudine.length];
+		int k=0;
 		for (int i = 0; i < longitudine.length; i++) {
-			data[i] = "";
+			data[k] = "";
 			try {
 				URL link = new URL(
 						"https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat="
@@ -45,29 +46,34 @@ public class Definizione {
 				try {
 					InputStreamReader inR = new InputStreamReader(in);
 					BufferedReader buf = new BufferedReader(inR);
-
 					while ((line = buf.readLine()) != null) {
-						data[i] += line + "\n"; 
+						data[k] += line + "\n";
 
 					}
+					if(!data[k].contains("errors"))
+						k++;
 				} finally {
 					in.close();
 				}
 			} catch (IOException e) {
 				System.out.println("I/O Error" + e);
+
+			} catch (Exception e) {
+				i++;
 			}
 		}
-		return data;
+		String[] datacompleti = new String[k];
+		for(int i=0;i<k;i++) 
+			datacompleti[i]=data[i];
+		return datacompleti;
 	}
 
-
-	
-/**
- * metodo che si utilizza per effettuare il PARSING dal JSON
- * 
- * @return un array contenente le informazioni richieste
- *  
- */
+	/**
+	 * metodo che si utilizza per effettuare il PARSING dal JSON
+	 * 
+	 * @return un array contenente le informazioni richieste
+	 * 
+	 */
 	public ArrayList<Informazioni> parsing() throws IOException {
 		/**
 		 * inizializzo e definisco un oggetto JSONObject
@@ -86,9 +92,8 @@ public class Definizione {
 				info.setName(jarray.getJSONObject(j).getString("name"));
 				info.setType_place(jarray.getJSONObject(j).getString("place_type"));
 				JSONArray appo = ((jarray.getJSONObject(j)).getJSONArray("centroid"));
-				for (Object oggetto : appo) {
-				String lati = oggetto.toString();
-				}
+				info.setLatitudine(appo.getDouble(0));
+				info.setLongitudine(appo.getDouble(1));
 				info.setCoordinate(appo.toString());
 				informazionitotali.add(info);
 			}

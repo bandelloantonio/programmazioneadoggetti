@@ -1,7 +1,7 @@
 package univpm.Progetto.controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import univpm.Progetto.funzionidelcontroller;
+
 import univpm.Progetto.model.Informazioni;
 import java.util.ArrayList;
 import org.json.JSONObject;
