@@ -94,7 +94,6 @@ public class Definizione {
 				JSONArray appo = ((jarray.getJSONObject(j)).getJSONArray("centroid"));
 				info.setLatitudine(appo.getDouble(0));
 				info.setLongitudine(appo.getDouble(1));
-				info.setCoordinate(appo.toString());
 				informazionitotali.add(info);
 			}
 		}

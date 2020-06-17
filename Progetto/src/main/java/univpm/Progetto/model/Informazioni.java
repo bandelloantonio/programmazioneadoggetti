@@ -1,28 +1,23 @@
 package univpm.Progetto.model;
 
 /**
- * creo una classe ereditarietà nella quale genero i get e i set
+ * Creo una classe per il salvataggio delle informazioni, che eredita la classe coordinate
  * @author Antonio
  */
 public class Informazioni extends Coordinate{
-	
+	/**
+	 * Il tipo del luogo 
+	 */
 	private  String type_place;
 	private  String name;
 	private  String full_name;
 	private  String country_code;
 	private  String country;
-	private  Coordinate coordinate;
 	/**
 	 * @return the type_place
 	 */
 	public String getType_place() {
 		return type_place;
-	}
-	/**
-	 * @return the coordinate
-	 */
-	public Coordinate getCoordinate() {
-		return coordinate;
 	}
 	/**
 	 * @param type_place the type_place to set

@@ -1,39 +1,41 @@
 package univpm.Progetto.model;
-
+/**
+ * Salvare una coppia di coordinate
+ * @author Antonio
+ */
 public class Coordinate {
-	private Double longitudine;
-	private Double latitudine;
-
 	/**
-	 * @param longitudine
-	 * @param latitudine
+	 * La longitudine delle coordinate
 	 */
-	public void setCoordinate(String appo) {
-		appo=appo.substring(1, appo.length()-2);
-		this.longitudine = Double.parseDouble(appo.split(",")[1]);
-		this.latitudine = Double.parseDouble(appo.split(",")[0]);
-	}
-
+	private Double longitudine;
 	/**
-	 * @return the longitudine
+	 * La latitudine delle coordinate
+	 */
+	private Double latitudine;
+	/**
+	 * La funzione che permette di ottenere la longitudine
+	 * @return la longitudine
 	 */
 	public Double getLongitudine() {
 		return longitudine;
 	}
 	/**
-	 * @param longitudine the longitudine to set
+	 * La funzione che permette di impostare la longitudine
+	 * @param longitudine la longitudine da impostare
 	 */
 	public void setLongitudine(Double longitudine) {
 		this.longitudine = longitudine;
 	}
 	/**
-	 * @return the latitudine
+	 * La funzione che permette di ottenere la latitudine
+	 * @return la latitudine
 	 */
 	public Double getLatitudine() {
 		return latitudine;
 	}
 	/**
-	 * @param latitudine the latitudine to set
+	 * La funzione che permette di impostare la latitudine
+	 * @param latitudine la latitudine da impostare
 	 */
 	public void setLatitudine(Double latitudine) {
 		this.latitudine = latitudine;

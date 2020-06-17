@@ -2,7 +2,6 @@
 package univpm.Progetto.util;
 
 /**
- * <p>
  * <b>Classe</b> per la gestione delle statistiche
  * <p>
  * @author Antonio
@@ -21,7 +20,7 @@ public class Stats implements StatsInterfaccia {
 		Coordinate[] contenitore = riconoscitore(coordinates);
 		ArrayList<Informazioni> lista = new ArrayList<Informazioni>();
 		for(int i=0;i<data.size();i++) {
-			if(contenitore[1].getLatitudine()<data.get(i).getCoordinate().getLatitudine()&&contenitore[0].getLatitudine()>data.get(i).getCoordinate().getLatitudine()&&contenitore[0].getLongitudine()<data.get(i).getCoordinate().getLongitudine()&&contenitore[1].getLongitudine()>data.get(i).getCoordinate().getLongitudine())
+			if(contenitore[1].getLatitudine()<data.get(i).getLatitudine()&&contenitore[0].getLatitudine()>data.get(i).getLatitudine()&&contenitore[0].getLongitudine()<data.get(i).getLongitudine()&&contenitore[1].getLongitudine()>data.get(i).getLongitudine())
 				lista.add(data.get(i));
 		}
 		return lista;
@@ -33,10 +32,14 @@ public class Stats implements StatsInterfaccia {
 	 */
 	private Coordinate[] riconoscitore(JSONObject coordinates) {
 		Coordinate[] riconosciuto = new Coordinate[2];
+		riconosciuto[0]=new Coordinate();
 		JSONArray appoggio1 = coordinates.getJSONArray("angolo_sinistro_alto");
-		riconosciuto[0].setCoordinate(appoggio1.toString());
+		riconosciuto[0].setLatitudine(appoggio1.getDouble(0));
+		riconosciuto[0].setLongitudine(appoggio1.getDouble(1));
+		riconosciuto[1]=new Coordinate();
 		JSONArray appoggio2 = coordinates.getJSONArray("angolo_destro_basso");
-		riconosciuto[1].setCoordinate(appoggio2.toString());
+		riconosciuto[1].setLatitudine(appoggio2.getDouble(0));
+		riconosciuto[1].setLongitudine(appoggio2.getDouble(1));
 		return riconosciuto;
 	}
 }
