@@ -5,9 +5,9 @@ Progetto d’esame per il corso di programmazione ad oggetti.
 * [Struttura](#Struttura)
 * [Funzionamento](#Funzionamento)
 * [Classi](#Classi)
+* [Chiamate](#Chiamate)
 * [Tecnologie](#Tecnologie)
 * [Autore](#Autore)
-
 ## Introduzione
 L’applicazione progettata ha lo scopo di mostrare le funzionalità di ricerca basata su parametri geografici e delle statistiche sulle location ottenute in base all’area di richiesta in termini di query geografica. L’utente attraverso un’interfaccia può inserire delle coordinate per effettuare una ricerca.
 
@@ -38,6 +38,23 @@ All’interno troviamo le variabili latitudine e longitudine;
 La classe che crea una query geografica;
 ### StatsInterfaccia
 E’ l’interfaccia che definisce le fuonzioni poi usate nella classe Stats.
+
+## Chiamate
+Per effettuare delle richieste l’utente può consultare la tabella che mostra le varie istruzioni per visualizzare i dati:
+| ROTTA | METODO | DESCRIZIONE | BODY |
+|---------- | ------------ | ------------------ | --------------------------------------------- |
+| /dati | GET | L’utente ha la possibilità di visualizzare una lista di località |  |
+| /statistica | POST | L’utente ha la possibilità di ottenere una lista di località nell’area di ricerca da lui desiderata| coppie di coordinate in formato JSON |
+
+Il formato JSON utilizzato dall’utente, con le coppie di coordinate, deve essere inserito in questa forma : 
+ 
+{
+ 
+Angolo alto sinistra…[…]
+
+Angolo basso destra…[…]
+
+}
 
 ## Tecnologie
 Eclipse,
