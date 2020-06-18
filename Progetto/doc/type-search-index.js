@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"univpm.Progetto.controller","l":"Controller"},{"p":"univpm.Progetto.model","l":"Coordinate"},{"p":"univpm.Progetto","l":"Definizione"},{"p":"univpm.Progetto","l":"funzionidelcontroller"},{"p":"univpm.Progetto.model","l":"Informazioni"},{"p":"univpm.Progetto","l":"ProgettoApplication"},{"p":"univpm.Progetto","l":"Stats"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"univpm.Progetto.controller","l":"Controller"}]

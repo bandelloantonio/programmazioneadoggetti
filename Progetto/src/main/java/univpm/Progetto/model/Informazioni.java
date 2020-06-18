@@ -6,69 +6,91 @@ package univpm.Progetto.model;
  */
 public class Informazioni extends Coordinate{
 	/**
-	 * Il tipo del luogo 
+	 * Il tipo di luogo
 	 */
 	private  String type_place;
+	/**
+	 * Il tipo di nome
+	 */
 	private  String name;
+	/**
+	 * Il tipo di nome completo
+	 */
 	private  String full_name;
+	/**
+	 * Il tipo di codice del paese 
+	 */
 	private  String country_code;
+	/**
+	 * Il tipo di paese
+	 */
 	private  String country;
 	/**
-	 * @return the type_place
+	 * La funzione che permette di ottiene il tipo di luogo
+	 * @return il tipo di luogo
 	 */
 	public String getType_place() {
 		return type_place;
 	}
 	/**
-	 * @param type_place the type_place to set
+	 * La funzione che permette di impostare il tipo di luogo
+	 * @param Type_place il tipo di luogo da impostare
 	 */
 	public void setType_place(String type_place) {
 		this.type_place = type_place;
 	}
 	/**
-	 * @return the name
+	 * La funzione che permette di ottenere il nome
+	 * @return nome
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
-	 * @param name the name to set
+	 * La funzione che permette di impostare il nome
+	 * @param name il tipo di nome da impostare
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	/**
-	 * @return the full_name
+	 * La funzione che permette di ottenere il nome completo
+	 * @return il nome completo 
 	 */
 	public String getFull_name() {
 		return full_name;
 	}
 	/**
-	 * @param full_name the full_name to set
+	 * La funzione che permette di impostare il nome completo
+	 * @param full_name il tipo di nome completo da impostare
 	 */
 	public void setFull_name(String full_name) {
 		this.full_name = full_name;
 	}
 	/**
-	 * @return the country_code
+	 * La funzione che permette di ottenere il codice del paese
+	 * @return il codice del paese
 	 */
 	public String getCountry_code() {
 		return country_code;
 	}
 	/**
-	 * @param country_code the country_code to set
+	 * La funzione che permette di impostare il codice del paese
+	 * @param country_code il codice del paese da impostare
 	 */
 	public void setCountry_code(String country_code) {
 		this.country_code = country_code;
 	}
 	/**
-	 * @return the country
+	 * La funzione che permette di ottenere il paese
+	 * @return il paese
 	 */
 	public String getCountry() {
 		return country;
 	}
 	/**
-	 * @param country the country to set
+	 * La funzione che permette di impostare il paese
+	 * @param country il paese da impostare
 	 */
 	public void setCountry(String country) {
 		this.country = country;

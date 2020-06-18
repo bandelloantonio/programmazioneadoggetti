@@ -27,8 +27,8 @@ public class Coordinate {
 		this.longitudine = longitudine;
 	}
 	/**
-	 * La funzione che permette di ottenere la latitudine
-	 * @return la latitudine
+	 * La funzione che permette di ottenere la longitudine
+	 * @return longitudine la longitudine da impostare
 	 */
 	public Double getLatitudine() {
 		return latitudine;
@@ -40,5 +40,4 @@ public class Coordinate {
 	public void setLatitudine(Double latitudine) {
 		this.latitudine = latitudine;
 	}
-	
 }

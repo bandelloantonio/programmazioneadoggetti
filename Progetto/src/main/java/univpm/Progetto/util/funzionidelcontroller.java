@@ -2,21 +2,22 @@ package univpm.Progetto.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.json.JSONObject;
-
 import univpm.Progetto.model.Informazioni;
 
-
 /**
- * creo una classe che mi aiuta a gestire il controller attraverso una classe eridarietà
+ * Creazione una classe ereditarietà che mi aiuta a gestire il controller
  * @author Antonio
  */
-
 public class funzionidelcontroller {
+	/**
+	 * Il database contenente tutte le informazioni scaricate e salvate
+	 */
 	private ArrayList<Informazioni> Database;
 	
-	
+	/**
+	 * Il costruttore: qui viene impartito il comando per il download delle informazioni assegnate poi al database
+	 */
 	public funzionidelcontroller() {
 		super();
 
@@ -24,20 +25,22 @@ public class funzionidelcontroller {
 		try {
 			Database = obj.parsing();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Ritorna il database
+	 * @return database 
+	 */
 	public ArrayList<Informazioni> getDatipercontroller(){
 		return Database;
 	}
 
 	/**
-	 * @param coordinates
-	 * @return tutte le informazioni passate dalla classe Stats
+	 * Ritorna solo le localita del database che soddisfano la specifica 
+	 * @param coordinates JSON contente la coppia di coordinate del bounding box
+	 * @return tutte le informazioni filtrate dalla classe Stats 
 	 */
 	public ArrayList<Informazioni> getStatisticapercontroller(JSONObject coordinates){
 		Stats statistiche = new Stats();

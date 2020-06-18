@@ -8,27 +8,22 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import univpm.Progetto.model.Informazioni;
 
 /**
- * @return l'URL per il download del dataset nel JSON e inizzializza l'intero
- *         array di record
- * @param url che ci restituisce un JSON contenente il link al dataset
+ * Classe che gestisce la lettura dell 'url e le eventuali eccezzioni
+ * @author Antonio
  */
-
 public class Definizione {
-
+/**
+ * Ricerca l'URL per il download del dataset nel JSON e inizzializza l'intero array di record
+ * @return 
+ * @throws IOException
+ */
 	public String[] getJsonFromUrl() throws IOException {
-
-		/**
-		 * definisco due variabili di tipo String
-		 * 
-		 * ed effettuo una lettura riga per riga
-		 */
+		
 		String line = "";
 		BufferedReader input = new BufferedReader(new FileReader("coordinate.txt"));
 		String[] longitudine = input.readLine().split(",");
@@ -38,6 +33,9 @@ public class Definizione {
 		for (int i = 0; i < longitudine.length; i++) {
 			data[k] = "";
 			try {
+				/**
+				 * @param url che ci restituisce un JSON contenente il link al dataset
+				 */
 				URL link = new URL(
 						"https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat="
 								+ latitudine[i] + "&long=" + longitudine[i] + "&granularity=neighborhood&max_results");
@@ -69,15 +67,12 @@ public class Definizione {
 	}
 
 	/**
-	 * metodo che si utilizza per effettuare il PARSING dal JSON
-	 * 
+	 * Il metodo che si utilizza per effettuare il PARSING dal JSON
+	 * Inizzializzo e definisco un oggetto JSONObject
 	 * @return un array contenente le informazioni richieste
-	 * 
 	 */
 	public ArrayList<Informazioni> parsing() throws IOException {
-		/**
-		 * inizializzo e definisco un oggetto JSONObject
-		 */
+		
 		String[] data = getJsonFromUrl();
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
 		for (int i = 0; i < data.length; i++) {
