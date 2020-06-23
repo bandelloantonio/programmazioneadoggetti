@@ -37,12 +37,12 @@ public class Controller {
 
 	}
 /**
- * 
- * @return
+ * Con la rotta "/metadata" l'utente richiede e ottiene tutte le informazioni su come per poter analizzare i dati
+ * @return database
  */
    @GetMapping("/metadata")
    public ArrayList<Informazioni> getMetadati(){
    return gestore.VisualizzaMetadata();
    }
   
-   }
+ }

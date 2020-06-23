@@ -46,11 +46,13 @@ public class funzionidelController {
 		Stats statistiche = new Stats();
 		return statistiche.funzione(coordinates,Database);
 	}
-/**
- * 
- * @return
- */
+
+	/**
+	 * Ritorna tutte le informazioni su come poter analizzare i dati 
+	 * @return
+	 */
 	public ArrayList<Informazioni> VisualizzaMetadata() {
-		return null;
+		return Database;
 	}
+
 }
