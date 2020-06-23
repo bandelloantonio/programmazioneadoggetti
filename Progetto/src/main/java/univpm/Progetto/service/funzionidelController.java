@@ -3,7 +3,7 @@ package univpm.Progetto.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONObject;
-
+import univpm.Progetto.eccezioni.eccezioniEsterne;
 import univpm.Progetto.eccezioni.eccezioniInterne;
 import univpm.Progetto.model.Informazioni;
 import univpm.Progetto.util.Definizione;
@@ -24,7 +24,6 @@ public class funzionidelController {
 	 * @throws eccezioniInterne 
 	 */
 	public funzionidelController() throws eccezioniInterne {
-		super();
 		Definizione obj = new Definizione ();
 		try {
 			Database = obj.parsing();
@@ -45,8 +44,9 @@ public class funzionidelController {
 	 * Ritorna solo le localita del database che soddisfano la specifica 
 	 * @param coordinates JSON contente la coppia di coordinate del bounding box
 	 * @return tutte le informazioni filtrate dalla classe Stats 
+	 * @throws eccezioniEsterne 
 	 */
-	public ArrayList<Informazioni> getStatisticapercontroller(JSONObject coordinates){
+	public ArrayList<Informazioni> getStatisticapercontroller(JSONObject coordinates) throws eccezioniEsterne{
 		Stats statistiche = new Stats();
 		return statistiche.funzione(coordinates,Database);
 	}

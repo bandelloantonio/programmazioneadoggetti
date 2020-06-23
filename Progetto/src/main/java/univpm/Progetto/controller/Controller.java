@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RestController;
 import univpm.Progetto.eccezioni.eccezioniEsterne;
 import univpm.Progetto.model.Informazioni;
 import univpm.Progetto.service.funzionidelController;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import org.json.JSONObject;
@@ -22,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @RestController
 public class Controller {
+	/**
+	 * 
+	 */
 	@Autowired
 	private funzionidelController gestore;
 /**
@@ -37,9 +39,10 @@ public class Controller {
  * di una regione definita da una coppia di coordinate
  * @param coordinates in formato JSON la coppia di coordinate 
  * @return database filtrato
+ * @throws eccezioniEsterne 
  */
 	@PostMapping("/statistica")
-	public ArrayList<Informazioni> getStatistica(@RequestBody String coordinates) {
+	public ArrayList<Informazioni> getStatistica(@RequestBody String coordinates) throws eccezioniEsterne {
 		JSONObject json = new JSONObject(coordinates);
 		return gestore.getStatisticapercontroller(json);
 
@@ -52,6 +55,10 @@ public class Controller {
    public ArrayList<Informazioni> getMetadati(){
    return gestore.VisualizzaMetadata();
    }
+   /**
+    * 
+    * @return
+    */
   @ExceptionHandler(eccezioniEsterne.class)
   public ResponseEntity<Object> gestioneEccezioniEsterne(){
 	  eccezioniEsterne erroregenerato = new eccezioniEsterne(Calendar.getInstance(),"Le coordinate inserite presentano dei problemi in lettura, non sono scritte correttamente.\n La forma corretta è:\r\n"+
