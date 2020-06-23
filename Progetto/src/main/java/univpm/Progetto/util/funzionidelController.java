@@ -9,7 +9,7 @@ import univpm.Progetto.model.Informazioni;
  * Creazione una classe ereditarietà che mi aiuta a gestire il controller
  * @author Antonio
  */
-public class funzionidelcontroller {
+public class funzionidelController {
 	/**
 	 * Il database contenente tutte le informazioni scaricate e salvate
 	 */
@@ -18,7 +18,7 @@ public class funzionidelcontroller {
 	/**
 	 * Il costruttore: qui viene impartito il comando per il download delle informazioni assegnate poi al database
 	 */
-	public funzionidelcontroller() {
+	public funzionidelController() {
 		super();
 
 		Definizione obj = new Definizione ();
@@ -45,5 +45,12 @@ public class funzionidelcontroller {
 	public ArrayList<Informazioni> getStatisticapercontroller(JSONObject coordinates){
 		Stats statistiche = new Stats();
 		return statistiche.funzione(coordinates,Database);
+	}
+/**
+ * 
+ * @return
+ */
+	public ArrayList<Informazioni> VisualizzaMetadata() {
+		return null;
 	}
 }

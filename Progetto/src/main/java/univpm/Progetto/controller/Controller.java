@@ -2,7 +2,7 @@ package univpm.Progetto.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import univpm.Progetto.model.Informazioni;
-import univpm.Progetto.util.funzionidelcontroller;
+import univpm.Progetto.util.funzionidelController;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @RestController
 public class Controller {
-	private funzionidelcontroller gestore = new funzionidelcontroller();
+	private funzionidelController gestore = new funzionidelController();
 /**
  * Con la rotta "/dati" l'utente richiede e ottiene tutte le informazioni 
  * @return database 
@@ -36,4 +36,13 @@ public class Controller {
 		return gestore.getStatisticapercontroller(json);
 
 	}
-}
+/**
+ * 
+ * @return
+ */
+   @GetMapping("/metadata")
+   public ArrayList<Informazioni> getMetadati(){
+   return gestore.VisualizzaMetadata();
+   }
+  
+   }
