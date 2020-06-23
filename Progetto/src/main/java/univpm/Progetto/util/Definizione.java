@@ -10,6 +10,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import univpm.Progetto.eccezioni.eccezioniInterne;
+import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;
 
 /**
@@ -21,8 +23,9 @@ public class Definizione {
  * Ricerca l'URL per il download del dataset nel JSON e inizzializza l'intero array di record
  * @return 
  * @throws IOException
+ * @throws eccezioniInterne 
  */
-	public String[] getJsonFromUrl() throws IOException {
+	public String[] getJsonFromUrl() throws IOException, eccezioniInterne {
 		
 		String line = "";
 		BufferedReader input = new BufferedReader(new FileReader("coordinate.txt"));
@@ -54,7 +57,7 @@ public class Definizione {
 					in.close();
 				}
 			} catch (IOException e) {
-				System.out.println("I/O Error" + e);
+				throw new eccezioniInterne();
 
 			} catch (Exception e) {
 				i++;
@@ -70,8 +73,9 @@ public class Definizione {
 	 * Il metodo che si utilizza per effettuare il PARSING dal JSON
 	 * Inizzializzo e definisco un oggetto JSONObject
 	 * @return un array contenente le informazioni richieste
+	 * @throws eccezioniInterne 
 	 */
-	public ArrayList<Informazioni> parsing() throws IOException {
+	public ArrayList<Informazioni> parsing() throws IOException, eccezioniInterne {
 		
 		String[] data = getJsonFromUrl();
 		ArrayList<Informazioni> informazionitotali = new ArrayList<Informazioni>();
@@ -87,8 +91,10 @@ public class Definizione {
 				info.setName(jarray.getJSONObject(j).getString("name"));
 				info.setType_place(jarray.getJSONObject(j).getString("place_type"));
 				JSONArray appo = ((jarray.getJSONObject(j)).getJSONArray("centroid"));
-				info.setLatitudine(appo.getDouble(0));
-				info.setLongitudine(appo.getDouble(1));
+				Coordinate dainserire = new Coordinate();
+				dainserire.setLatitudine(appo.getDouble(0));
+				dainserire.setLongitudine(appo.getDouble(1));
+				info.setCoordinate(dainserire);
 				informazionitotali.add(info);
 			}
 		}

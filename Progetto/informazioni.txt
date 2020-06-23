@@ -1,0 +1,7 @@
+type_place;tipo di località (città, campagna, ...);String
+
+
+
+
+
+

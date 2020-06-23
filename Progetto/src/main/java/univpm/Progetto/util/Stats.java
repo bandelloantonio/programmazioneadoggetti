@@ -24,7 +24,7 @@ public class Stats implements StatsInterfaccia {
 		Coordinate[] contenitore = riconoscitore(coordinates);
 		ArrayList<Informazioni> lista = new ArrayList<Informazioni>();
 		for(int i=0;i<data.size();i++) {
-			if(contenitore[1].getLatitudine()<data.get(i).getLatitudine()&&contenitore[0].getLatitudine()>data.get(i).getLatitudine()&&contenitore[0].getLongitudine()<data.get(i).getLongitudine()&&contenitore[1].getLongitudine()>data.get(i).getLongitudine())
+			if(contenitore[1].getLatitudine()<data.get(i).getCoordinate().getLatitudine()&&contenitore[0].getLatitudine()>data.get(i).getCoordinate().getLatitudine()&&contenitore[0].getLongitudine()<data.get(i).getCoordinate().getLongitudine()&&contenitore[1].getLongitudine()>data.get(i).getCoordinate().getLongitudine())
 				lista.add(data.get(i));
 		}
 		return lista;

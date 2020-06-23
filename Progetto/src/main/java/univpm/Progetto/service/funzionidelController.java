@@ -1,9 +1,13 @@
-package univpm.Progetto.util;
+package univpm.Progetto.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONObject;
+
+import univpm.Progetto.eccezioni.eccezioniInterne;
 import univpm.Progetto.model.Informazioni;
+import univpm.Progetto.util.Definizione;
+import univpm.Progetto.util.Stats;
 
 /**
  * Creazione una classe ereditarietà che mi aiuta a gestire il controller
@@ -17,10 +21,10 @@ public class funzionidelController {
 	
 	/**
 	 * Il costruttore: qui viene impartito il comando per il download delle informazioni assegnate poi al database
+	 * @throws eccezioniInterne 
 	 */
-	public funzionidelController() {
+	public funzionidelController() throws eccezioniInterne {
 		super();
-
 		Definizione obj = new Definizione ();
 		try {
 			Database = obj.parsing();
@@ -49,7 +53,7 @@ public class funzionidelController {
 
 	/**
 	 * Ritorna tutte le informazioni su come poter analizzare i dati 
-	 * @return
+	 * @return le informazioni
 	 */
 	public ArrayList<Informazioni> VisualizzaMetadata() {
 		return Database;

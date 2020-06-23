@@ -4,7 +4,7 @@ package univpm.Progetto.model;
  * Creo una classe per il salvataggio delle informazioni, che eredita la classe coordinate
  * @author Antonio
  */
-public class Informazioni extends Coordinate{
+public class Informazioni{
 	/**
 	 * Il tipo di luogo
 	 */
@@ -25,6 +25,22 @@ public class Informazioni extends Coordinate{
 	 * Il tipo di paese
 	 */
 	private  String country;
+	/**
+	 * Le coordinate che identificano la località
+	 */
+	private Coordinate coordinate;
+	/**
+	 * @return the coordinate
+	 */
+	public Coordinate getCoordinate() {
+		return coordinate;
+	}
+	/**
+	 * @param coordinate the coordinate to set
+	 */
+	public void setCoordinate(Coordinate coordinate) {
+		this.coordinate = coordinate;
+	}
 	/**
 	 * La funzione che permette di ottiene il tipo di luogo
 	 * @return il tipo di luogo
