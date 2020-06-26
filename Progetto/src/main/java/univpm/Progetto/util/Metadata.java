@@ -8,9 +8,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import univpm.Progetto.eccezioni.eccezioniInterne;
 
+/**
+ * 
+ * @author Antonio
+ *
+ */
 public class Metadata {
+	/**
+	 * 
+	 */
 	private HashMap<String,String> SingoloMetadati;
+	/**
+	 * 
+	 */
 	private ArrayList<HashMap<String,String>> Metadati = new ArrayList<HashMap<String,String>>();
+	/**
+	 * 
+	 * @throws eccezioniInterne
+	 */
 	public Metadata() throws eccezioniInterne {
 		//lettura di informazioni.txt
 		String line = new String();

@@ -42,12 +42,12 @@ public class Definizione {
 				URL link = new URL(
 						"https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat="
 								+ latitudine[i] + "&long=" + longitudine[i] + "&granularity=neighborhood&max_results");
+				https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat=37.781157&long=-122.398720&granularity=neighborhood&max_results
 				URLConnection openConnection = link.openConnection();
-				BufferedInputStream in = new BufferedInputStream(openConnection.getInputStream());
+				BufferedReader in = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
 				try {
-					InputStreamReader inR = new InputStreamReader(in);
-					BufferedReader buf = new BufferedReader(inR);
-					while ((line = buf.readLine()) != null) {
+					
+					while ((line = in.readLine()) != null) {
 						data[k] += line + "\n";
 
 					}
@@ -57,7 +57,7 @@ public class Definizione {
 					in.close();
 				}
 			} catch (IOException e) {
-				throw new eccezioniInterne();
+				//throw new eccezioniInterne();
 
 			} catch (Exception e) {
 				i++;

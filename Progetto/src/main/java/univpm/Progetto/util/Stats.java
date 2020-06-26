@@ -3,7 +3,6 @@ package univpm.Progetto.util;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import univpm.Progetto.eccezioni.eccezioniEsterne;
 import univpm.Progetto.model.Coordinate;
 import univpm.Progetto.model.Informazioni;

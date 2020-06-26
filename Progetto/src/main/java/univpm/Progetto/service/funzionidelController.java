@@ -3,16 +3,20 @@ package univpm.Progetto.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
+
 import univpm.Progetto.eccezioni.eccezioniEsterne;
 import univpm.Progetto.eccezioni.eccezioniInterne;
 import univpm.Progetto.model.Informazioni;
 import univpm.Progetto.util.Definizione;
 import univpm.Progetto.util.Stats;
 
+
 /**
  * Creazione una classe ereditarietà che mi aiuta a gestire il controller
  * @author Antonio
  */
+@Service
 public class funzionidelController {
 	/**
 	 * Il database contenente tutte le informazioni scaricate e salvate
