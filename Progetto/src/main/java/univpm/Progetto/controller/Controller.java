@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 	/**
-	 * 
+	 * Il gestore ha il compito di eseguire le funzioni richieste 
 	 */
 	@Autowired
 	private funzionidelController gestore;
@@ -38,9 +38,9 @@ public class Controller {
 /**
  * Con la rotta "/statistica" l'utente richiede e ottiene tutte le informazioni che soddisfano l'appartenenza 
  * di una regione definita da una coppia di coordinate
- * @param coordinates in formato JSON la coppia di coordinate 
+ * @param coordinates in formato JSON la coppia di coordinate
+ * @throws eccezioniEsterne  
  * @return database filtrato
- * @throws eccezioniEsterne 
  */
 	@PostMapping("/statistica")
 	public ArrayList<Informazioni> getStatistica(@RequestBody String coordinates) throws eccezioniEsterne {
@@ -57,26 +57,13 @@ public class Controller {
    return gestore.VisualizzaMetadata();
    }
    /**
-    * 
-    * @return
+    * Il gestore delle eccezzioni sollevate a causa di una richiesta incorretta
+    * @return errore
     */
   @ExceptionHandler(eccezioniEsterne.class)
-  public ResponseEntity<Object> gestioneEccezioniEsterne(){
-	  eccezioniEsterne erroregenerato = new eccezioniEsterne(Calendar.getInstance(),"Le coordinate inserite presentano dei problemi in lettura, non sono scritte correttamente.\n La forma corretta è:\r\n"+
-            "{\r\n" +
-	  		"    \"angolo_sinistro_alto\":\r\n" + 
-			"    [\r\n" + 
-	  		"        num1\r\n" + 
-	  		"        num2\r\n" + 
-	  		"    ],\r\n" + 
-	  		"    \"angolo_destro_basso\":\r\n" + 
-	  		"    [\r\n" + 
-	  		"        num3\r\n" + 
-	  		"        num4\r\n" + 
-	  		"    ]\r\n" + 
-	  		"}");
-	return new ResponseEntity<>(erroregenerato,HttpStatus.BAD_REQUEST);
-	  
+  public ResponseEntity<Object> gestioneEccezioniEsterne(eccezioniEsterne erroregenerato){
+	  Erroremostrato risposta = new Erroremostrato(erroregenerato.getIstante(), erroregenerato.getErrorepresente());
+	return new ResponseEntity<Object>(risposta,HttpStatus.BAD_REQUEST);
   }
 
  }

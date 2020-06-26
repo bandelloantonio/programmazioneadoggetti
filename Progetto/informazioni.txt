@@ -5,7 +5,3 @@ country;il nome della nazione (Stati Uniti, Italia, ...);String
 country_code; il codice della nazione (USA, IT, ...);String
 latitudine;la latitudine di quella determinata località;Double
 longitudine;la longitudine di quella determinata località;Double
-
-
-
-

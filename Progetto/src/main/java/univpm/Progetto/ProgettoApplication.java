@@ -12,7 +12,7 @@ public class ProgettoApplication {
 
 	/**
 	 * Il main dell'applicazione
-	 * @param args
+	 * @param args parametri formali
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(ProgettoApplication.class, args);
