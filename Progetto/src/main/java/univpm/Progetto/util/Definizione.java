@@ -1,6 +1,5 @@
 package univpm.Progetto.util;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,6 +43,7 @@ public class Definizione {
 								+ latitudine[i] + "&long=" + longitudine[i] + "&granularity=neighborhood&max_results");
 				//https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/user/1.1/geo/reverse_geocode.json?lat=37.781157&long=-122.398720&granularity=neighborhood&max_results
 				URLConnection openConnection = link.openConnection();
+				wait(1);
 				BufferedReader in = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
 				try {
 					
@@ -56,7 +56,8 @@ public class Definizione {
 				} finally {
 					in.close();
 				}
-			} catch (IOException e) {
+			} 
+			catch (IOException e) {
 				//throw new eccezioniInterne();
 
 			} catch (Exception e) {

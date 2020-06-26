@@ -2,13 +2,14 @@ package univpm.Progetto.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
-
 import univpm.Progetto.eccezioni.eccezioniEsterne;
 import univpm.Progetto.eccezioni.eccezioniInterne;
 import univpm.Progetto.model.Informazioni;
 import univpm.Progetto.util.Definizione;
+import univpm.Progetto.util.Metadata;
 import univpm.Progetto.util.Stats;
 
 
@@ -22,18 +23,15 @@ public class funzionidelController {
 	 * Il database contenente tutte le informazioni scaricate e salvate
 	 */
 	private ArrayList<Informazioni> Database;
-	
+	private Metadata metadati = new Metadata();
 	/**
 	 * Il costruttore: qui viene impartito il comando per il download delle informazioni assegnate poi al database
 	 * @throws eccezioniInterne 
 	 */
-	public funzionidelController() throws eccezioniInterne {
-		Definizione obj = new Definizione ();
-		try {
-			Database = obj.parsing();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public funzionidelController() throws IOException, eccezioniInterne {
+	//	Definizione obj = new Definizione ();
+	//		Database = obj.parsing();
+
 	}
 
 	/**
@@ -57,10 +55,11 @@ public class funzionidelController {
 
 	/**
 	 * Ritorna tutte le informazioni su come poter analizzare i dati 
+	 * @return 
 	 * @return le informazioni
 	 */
-	public ArrayList<Informazioni> VisualizzaMetadata() {
-		return Database;
+	public  ArrayList<HashMap<String, String>> VisualizzaMetadata() {
+		return metadati.getMetadati();
 	}
 
 }

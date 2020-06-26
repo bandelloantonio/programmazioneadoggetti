@@ -1,11 +1,12 @@
 package univpm.Progetto.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-import univpm.Progetto.eccezioni.eccezioniEsterne;
+
+import univpm.Progetto.eccezioni.*;
 import univpm.Progetto.model.Informazioni;
 import univpm.Progetto.service.funzionidelController;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RestController;
 /**
  * Classe controller che gestisce le chiamate
  * @author Antonio
@@ -52,7 +53,7 @@ public class Controller {
  * @return database
  */
    @GetMapping("/metadata")
-   public ArrayList<Informazioni> getMetadati(){
+   public ArrayList<HashMap<String, String>> getMetadati(){
    return gestore.VisualizzaMetadata();
    }
    /**
