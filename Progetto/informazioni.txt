@@ -1,6 +1,10 @@
-type_place;tipo di località (città, campagna, ...);String
-
-
+place_type;tipo di località (città, campagna, ...);String
+name;il nome della località (Ancona, Roma, ...);String
+full_name;il nome della località insieme al codice della stessa (Ancona, AN);String
+country;il nome della nazione (Stati Uniti, Italia, ...);String
+country_code; il codice della nazione (USA, IT, ...);String
+latitudine;la latitudine di quella determinata località;Double
+longitudine;la longitudine di quella determinata località;Double
 
 
 
