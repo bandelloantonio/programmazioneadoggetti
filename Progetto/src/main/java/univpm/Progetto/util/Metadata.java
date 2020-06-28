@@ -11,6 +11,7 @@ import univpm.Progetto.eccezioni.eccezioniInterne;
 
 /**
  * Classe per la gestione dei Metadati
+ * 
  * @author Antonio
  */
 @Component("Metadata")
@@ -18,17 +19,19 @@ public class Metadata {
 	/**
 	 * Insieme contenente variabile, significato, tipo variabile
 	 */
-	private HashMap<String,String> SingoloMetadati;
+	private HashMap<String, String> SingoloMetadati;
 	/**
 	 * Insieme di tutti i singioli Metadati
 	 */
-	private ArrayList<HashMap<String,String>> Metadati = new ArrayList<HashMap<String,String>>();
+	private ArrayList<HashMap<String, String>> Metadati = new ArrayList<HashMap<String, String>>();
+
 	/**
 	 * Importazione e riconoscimento dei metadati dal file di testo informazioni.txt
+	 * 
 	 * @throws eccezioniInterne
 	 */
 	public Metadata() throws eccezioniInterne {
-		//lettura di informazioni.txt
+		// lettura di informazioni.txt
 		String line = new String();
 		BufferedReader lettore;
 		try {
@@ -36,12 +39,12 @@ public class Metadata {
 			while ((line = lettore.readLine()) != null) {
 				SingoloMetadati = new HashMap<String, String>();
 				String[] campi = line.split(";");
-				SingoloMetadati.put("Variabile",campi[0]);
-				SingoloMetadati.put("Significato",campi[1]);
-				SingoloMetadati.put("tipo variabile",campi[2]);
+				SingoloMetadati.put("Variabile", campi[0]);
+				SingoloMetadati.put("Significato", campi[1]);
+				SingoloMetadati.put("tipo variabile", campi[2]);
 				Metadati.add(SingoloMetadati);
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			throw new eccezioniInterne("Informazioni.txt");
 		} catch (IOException e) {
@@ -49,11 +52,13 @@ public class Metadata {
 		} catch (Exception e) {
 		}
 	}
+
 	/**
 	 * Getter per l'insieme di tutti i metadati
+	 * 
 	 * @return the metadati
 	 */
-	public ArrayList<HashMap<String,String>> getMetadati() {
+	public ArrayList<HashMap<String, String>> getMetadati() {
 		return Metadati;
 	}
 
