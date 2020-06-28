@@ -75,9 +75,9 @@ public class Stats implements StatsInterfaccia {
 	 * @param daverificare la coordinata da sottoporre a verifica del rispetto del range
 	 */
 	private void Controllo (Coordinate daverificare) {
-		if(daverificare.getLatitudine()<=-90||daverificare.getLatitudine()>=90)
+		if(daverificare.getLatitudine()<-90||daverificare.getLatitudine()>90)
 			throw new eccezioniEsterne(daverificare.getLatitudine(),"della latitudine (-90,90)");
-		if(daverificare.getLongitudine()<=-180||daverificare.getLongitudine()>=180)
+		if(daverificare.getLongitudine()<-180||daverificare.getLongitudine()>180)
 			throw new eccezioniEsterne(daverificare.getLongitudine(),"della longitudine (-180,180)");
 	}
 }
